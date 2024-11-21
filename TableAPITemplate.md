@@ -15,7 +15,7 @@ This template guides the creation of PostgreSQL functions for new tables in our 
 ---
 
 ## Rules and Standards
-### **1. Absolute MUST, Non-Negotiable
+### **1. Absolute MUST, Non-Negotiable**
 
 - All functions **MUST**: 
 	1. Use `postgres` as the owner in the `ALTER FUNCTION` statement. 
