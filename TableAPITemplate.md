@@ -298,27 +298,27 @@ CREATE OR REPLACE FUNCTION public.get_crew_hdr_list(org_id BIGINT)
 RETURNS TABLE(
 	function_status BOOLEAN,
 	msg TEXT,
-    crew_hdr_id BIGINT,
-    org_id BIGINT,
-    crew_type_id SMALLINT,
-    crew_name CHARACTER VARYING,
-    driver_id BIGINT,
-    head_count SMALLINT,
-    hours_per_day_0 NUMERIC(5, 2),
-    hours_per_day_1 NUMERIC(5, 2),
-    hours_per_day_2 NUMERIC(5, 2),
-    hours_per_day_3 NUMERIC(5, 2),
-    hours_per_day_4 NUMERIC(5, 2),
-    hours_per_day_5 NUMERIC(5, 2),
-    hours_per_day_6 NUMERIC(5, 2),
-    created_by_name TEXT,
-    updated_by_name TEXT
+    	crew_hdr_id BIGINT,
+    	org_id BIGINT,
+    	crew_type_id SMALLINT,
+    	crew_name CHARACTER VARYING,
+    	driver_id BIGINT,
+	head_count SMALLINT,
+	hours_per_day_0 NUMERIC(5, 2),
+	hours_per_day_1 NUMERIC(5, 2),
+	hours_per_day_2 NUMERIC(5, 2),
+	hours_per_day_3 NUMERIC(5, 2),
+	hours_per_day_4 NUMERIC(5, 2),
+	hours_per_day_5 NUMERIC(5, 2),
+	hours_per_day_6 NUMERIC(5, 2),
+	created_by_name TEXT,
+	updated_by_name TEXT
 ) AS $$
 BEGIN
     RETURN QUERY
-    SELECT 
-	    TRUE::BOOLEAN,
-	    'Crews Found'::TEXT,
+    SELECT
+	TRUE::BOOLEAN,
+	'Crews Found'::TEXT,
         ch.crew_hdr_id,
         ch.org_id,
         ch.crew_type_id,
@@ -342,23 +342,23 @@ BEGIN
     IF NOT FOUND THEN
         RETURN QUERY 
         SELECT 
-	        FALSE::BOOLEAN, -- function_status
+	    FALSE::BOOLEAN, -- function_status
             'No data found for Crew' || <param2_name>::TEXT, -- msg
-	        NULL::BIGINT, -- crew_hdr_id
-	        NULL::BIGINT, -- org_id
-	        NULL::SMALLINT, -- crew_type_id
-	        NULL::CHARACTER VARYING, -- crew_name
-	        NULL::BIGINT, -- driver_id
-	        NULL::SMALLINT, -- head_count
-	        NULL::NUMERIC(5, 2), -- hours_per_day_0
-	        NULL::NUMERIC(5, 2), -- hours_per_day_1
-	        NULL::NUMERIC(5, 2), -- hours_per_day_2
-	        NULL::NUMERIC(5, 2), -- hours_per_day_3
-	        NULL::NUMERIC(5, 2), -- hours_per_day_4
-	        NULL::NUMERIC(5, 2), -- hours_per_day_5
-	        NULL::NUMERIC(5, 2), -- hours_per_day_6
-	        NULL::TEXT, -- created_by_name
-	        NULL::TEXT -- updated_by_name
+	    NULL::BIGINT, -- crew_hdr_id
+	    NULL::BIGINT, -- org_id
+	    NULL::SMALLINT, -- crew_type_id
+	    NULL::CHARACTER VARYING, -- crew_name
+	    NULL::BIGINT, -- driver_id
+	    NULL::SMALLINT, -- head_count
+	    NULL::NUMERIC(5, 2), -- hours_per_day_0
+	    NULL::NUMERIC(5, 2), -- hours_per_day_1
+	    NULL::NUMERIC(5, 2), -- hours_per_day_2
+	    NULL::NUMERIC(5, 2), -- hours_per_day_3
+	    NULL::NUMERIC(5, 2), -- hours_per_day_4
+	    NULL::NUMERIC(5, 2), -- hours_per_day_5
+	    NULL::NUMERIC(5, 2), -- hours_per_day_6
+	    NULL::TEXT, -- created_by_name
+	    NULL::TEXT -- updated_by_name
     END IF;
 END;
 $$ LANGUAGE plpgsql;
@@ -375,15 +375,15 @@ CREATE OR REPLACE FUNCTION public.get_crew_hdr_details(crew_hdr_id BIGINT)
 RETURNS TABLE(
 	function_status::BOOLEAN,
 	msg::TEXT,
-    crew_hdr_id BIGINT,
-    org_id BIGINT,
-    crew_type_id SMALLINT,
-    crew_name CHARACTER VARYING,
-    driver_id BIGINT,
-    head_count SMALLINT,
-    created_by_name TEXT,
-    updated_by_name TEXT,
-    crew_details JSON
+        crew_hdr_id BIGINT,
+	org_id BIGINT,
+	crew_type_id SMALLINT,
+	crew_name CHARACTER VARYING,
+	driver_id BIGINT,
+	head_count SMALLINT,
+	created_by_name TEXT,
+	updated_by_name TEXT,
+	crew_details JSON
 ) AS $$
 BEGIN
     RETURN QUERY
